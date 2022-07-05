@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="home"><a href="/">Home</a></div>
+    
+    <div class="box" id="heading">
+   <h1> <%= listitem%> </h1>
+   </div>
+   
+  <div class="box">
+  <% for(let i =0; i<newitem.length;i++){%>
+   <form action="/delete" method="post"> 
+    <div class="item">
+    <input type="checkbox" name="checkbox" value="<%=newitem[i]._id %>" onchange="this.form.submit()" >
+    <p>
+        <%=newitem[i].task%>
+    </p>
+    </div>
+   </form>
+   <%}%>
+ 
+  
+   <form action="/" method="post">
+    <input type="text" name="taskadd" id="list-item" placeholder="task to do" autocomplete="off">
+    <button type="submit" name="list" value=<%=listitem %> >+</button>
+   </form>
+ </div>
+</body>
+</html>
